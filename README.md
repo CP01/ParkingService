@@ -6,7 +6,10 @@ Elder - Lower Rack Preference<br>
 Royal - Vacant Slots both sides<br>
 Filling starts from closer to Exit<br>
 Incentives for Ride Sharing<br>
-Incentives for Frequent User
+Incentives for Frequent User<br>
+We make it easy for customer to remember the slots by using words like Invent_Or, Direct_Or, etc instead of alpha-numeric combinations.<br>
+RowNames { INVENT, FORMAT, NARRAT, DIRECT }<br>
+ColumnNames { _OR, _ABLE, _IVE, _ING, _ED  }
 <br>----------------------------------<br>
 Design:<br>
 <pre>
