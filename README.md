@@ -24,3 +24,12 @@ Exit<br>
 
 -Payment Channle will use points while billing
 
+
+<br>----------------------------------<br>
+<br>Key points to understand Summary Displayed after adding/removing vehicle:
+<br>
+Cx -> x Car<br>
+Bx -> x Bike<br>
+Bottom_Upper Rack Representation<br>
+<pre>  C0_C1 -> 0 Car in bottom rack while 1 car in upper rack
+</pre><br>
