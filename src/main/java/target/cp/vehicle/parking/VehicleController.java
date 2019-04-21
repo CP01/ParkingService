@@ -37,7 +37,16 @@ public class VehicleController {
 		Owner owner = ownerService.findOwner(vehicle.getContactNumber());
 		String generatedSlot = vechileService.getSlot(vehicle, owner.getOwnerType());
 		if(generatedSlot!=null && !generatedSlot.isEmpty()) {
-			req.setAttribute("slot", generatedSlot);
+			StringBuilder formattedSlot = new StringBuilder("Level_");
+			formattedSlot.append(vehicle.getLevel());
+			if(vehicle.getIsUpperRack()) {
+				formattedSlot.append(" Upper_Rack --> ");
+			}
+			else {
+				formattedSlot.append(" Lower_Rack --> ");
+			}
+			formattedSlot.append(generatedSlot);
+			req.setAttribute("slot", formattedSlot);
 		}
 		else {
 			req.setAttribute("slot", "Not Available. Please try later");

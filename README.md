@@ -2,7 +2,7 @@
 
 Features Supported:<br>
 --------------------------------------<br>
-Elder - Lower Rack Preference<br>
+Elder - Lower Rack Preference, if not available then automatically allot normal customer slot<br>
 Royal - Vacant Slots both sides<br>
 Filling starts from closer to Exit<br>
 Incentives for Ride Sharing<br>

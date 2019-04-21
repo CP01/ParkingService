@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import target.cp.vehicle.parking.enums.OwnerType;
+import target.cp.vehicle.parking.enums.RowNames;
 import target.cp.vehicle.parking.enums.VehicleType;
 import target.cp.vehicle.parking.pojos.Vehicle;
 import target.cp.vehicle.parking.repos.VehicleRepo;
@@ -252,6 +253,20 @@ public class VehicleService {
 								level.setCarSlotsAvailability(level.getCarSlotsAvailability()-3);
 								break;
 							}
+							String curKey = entry.getKey();
+							// Can not adjust Royal Family these rows, due to Bike slots
+							if(curKey.contains(RowNames.FORMAT.toString()) || curKey.contains(RowNames.NARRAT.toString())) {
+								prevPrevKey = null;
+								prevKey = null;
+								continue;
+							}
+							// Continuous three slots should be in same row
+							if(prevPrevKey != null) {
+								if(!prevPrevKey.substring(0, prevPrevKey.indexOf("_")).equals(curKey.substring(0, prevPrevKey.indexOf("_")))) {
+									prevPrevKey = null;
+									prevKey = null;
+								}
+							}
 							String value[] = entry.getValue().split(FrequentlyUsedConstants.UNDERSCORE);
 							int bottomCount = Integer.parseInt(value[0].substring(1));
 							int upperCount = Integer.parseInt(value[1].substring(1));
@@ -302,6 +317,20 @@ public class VehicleService {
 									level.setCarSlotsAvailability(level.getCarSlotsAvailability()-1);
 									break;
 								}
+								String curKey = entry.getKey();
+								// Can not adjust Royal Family these rows, due to Bike slots
+								if(curKey.contains(RowNames.FORMAT.toString()) || curKey.contains(RowNames.NARRAT.toString())) {
+									prevPrevKey = null;
+									prevKey = null;
+									continue;
+								}
+								// Continuous three slots should be in same row
+								if(prevPrevKey != null) {
+									if(!prevPrevKey.substring(0, prevPrevKey.indexOf("_")).equals(curKey.substring(0, prevPrevKey.indexOf("_")))) {
+										prevPrevKey = null;
+										prevKey = null;
+									}
+								}
 								String value[] = entry.getValue().split(FrequentlyUsedConstants.UNDERSCORE);
 								int bottomCount = Integer.parseInt(value[0].substring(1));
 								int upperCount = Integer.parseInt(value[1].substring(1));
@@ -332,8 +361,8 @@ public class VehicleService {
 										continue;
 									}
 									level.carSummary.put(entry.getKey(), value[0] + newValue.toString());
-									level.carSummary.put(prevKey, level.carSummary.get(prevKey).substring(0,3) + newValue.toString());
-									level.carSummary.put(prevPrevKey, level.carSummary.get(prevKey).substring(0,3) + newValue.toString());
+									level.carSummary.put(prevKey, level.carSummary.get(prevKey).substring(0,2) + newValue.toString());
+									level.carSummary.put(prevPrevKey, level.carSummary.get(prevKey).substring(0,2) + newValue.toString());
 									slotFound = true;
 									vehicle.setIsUpperRack(true);
 									vehicle.setSlot(prevPrevKey + ":" + prevKey + ":" + entry.getKey());
