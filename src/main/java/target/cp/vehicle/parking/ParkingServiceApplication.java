@@ -9,7 +9,9 @@ public class ParkingServiceApplication {
 	public static void main(String[] args) {
 		
 		Admin admin = new Admin();
-		System.out.println("Level - " + admin.initializeLevel() + " is initialized.");
+		for(int i=0;i<Admin.totalLevels;i++) {
+			System.out.println("Level - " + admin.initializeLevel() + " is initialized.");
+		}
 		SpringApplication.run(ParkingServiceApplication.class, args);
 	}
 
