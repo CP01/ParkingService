@@ -12,7 +12,7 @@ public class Admin {
 	static List<Level> levels = new ArrayList<>();
 	
 	// Need to initialize these values via constructor
-	final static int totalLevels = 1;
+	final static int totalLevels = 3;
 	final static int FREQUENCY_INCENTIVES = 20;
 	final static int SHARING_INCENTIVES = 25;
 	final int BIKE_SLOTS = 6;

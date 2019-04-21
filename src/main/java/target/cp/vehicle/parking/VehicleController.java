@@ -19,8 +19,6 @@ public class VehicleController {
 	@Autowired
 	private VehicleService vechileService;
 	@Autowired
-	private HomeController homeController;
-	@Autowired
 	private OwnerService ownerService;
 	
 	public List<Level> displayCompleteSummary() {

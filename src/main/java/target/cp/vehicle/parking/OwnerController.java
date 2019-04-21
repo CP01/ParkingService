@@ -18,8 +18,6 @@ public class OwnerController {
 	private OwnerService ownerService;
 	@Autowired
 	private VehicleService vehicleService;
-	@Autowired
-	private HomeController homeController;
 
 	
 	@RequestMapping("/addOwner")
