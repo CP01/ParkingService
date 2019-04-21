@@ -17,7 +17,6 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
 		mv.addObject("levels", Admin.levels);
-		initializeHomePage(mv);
 		return mv;
 	}
 	
@@ -29,17 +28,5 @@ public class HomeController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void initializeHomePage(ModelAndView mv) {
-		int bikeVacantSpots = 0;
-		int carVacantSpots = 0;
-		for(Level level : Admin.levels) {
-			bikeVacantSpots += level.getBikeSlotsAvailability();
-			carVacantSpots += level.getCarSlotsAvailability();
-		}
-		mv.addObject("levelCount",Admin.levels.size());
-		mv.addObject("bikeVacantSpots", bikeVacantSpots);
-		mv.addObject("carVacantSpots", carVacantSpots);
 	}
 }

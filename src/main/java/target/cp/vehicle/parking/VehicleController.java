@@ -32,7 +32,6 @@ public class VehicleController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/home");
 		mv.addObject("levels", Admin.levels);
-		homeController.initializeHomePage(mv);
 		if(vehicle.getIsRideShared() == null)
 		{
 			vehicle.setIsRideShared(false);

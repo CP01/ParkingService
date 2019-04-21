@@ -45,7 +45,6 @@ public class OwnerController {
 			if(vehicle != null) {
 				mv.setViewName("/home");
 				mv.addObject("levels", Admin.levels);
-				homeController.initializeHomePage(mv);
 				if(vehicleService.removeVehicle(vehicle))
 					req.setAttribute("exitingOwner", owner.getFirstName());
 				else
