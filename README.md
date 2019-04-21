@@ -27,6 +27,7 @@ Exit<br>
 
 -Payment Channle will use points while billing
 
+-Currently levels and incentives can be changed directly in Admin.java
 
 <br>----------------------------------<br>
 <br>Key points to understand Summary Displayed after adding/removing vehicle:
